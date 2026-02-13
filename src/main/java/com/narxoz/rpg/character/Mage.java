@@ -13,6 +13,6 @@ public class Mage extends AbstractCharacter {
 
     @Override
     public void useSpecialAbility() {
-        System.out.println(getName() + " casts ARCANE BLAST! A burst of magic damage!");
+        System.out.println(getName()+" casts ARCANE BLAST! A burst of magic damage!");
     }
 }

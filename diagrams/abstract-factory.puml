@@ -1,0 +1,34 @@
+@startuml
+package com.narxoz.rpg.equipment {
+  interface Weapon
+  interface Armor
+  class IronSword
+  class PlateArmor
+  class WizardStaff
+  class EnchantedRobes
+  class Longbow
+  class LeatherArmor
+}
+
+package com.narxoz.rpg.factory {
+  interface EquipmentFactory
+  class MedievalEquipmentFactory
+  class MagicEquipmentFactory
+  class RangerEquipmentFactory
+}
+
+Weapon <|.. IronSword
+Weapon <|.. WizardStaff
+Weapon <|.. Longbow
+
+Armor <|.. PlateArmor
+Armor <|.. EnchantedRobes
+Armor <|.. LeatherArmor
+
+EquipmentFactory <|.. MedievalEquipmentFactory
+EquipmentFactory <|.. MagicEquipmentFactory
+EquipmentFactory <|.. RangerEquipmentFactory
+
+EquipmentFactory ..> Weapon : createWeapon()
+EquipmentFactory ..> Armor : createArmor()
+@enduml

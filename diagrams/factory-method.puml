@@ -1,0 +1,30 @@
+@startuml
+package "com.narxoz.rpg.character" {
+  interface Character
+  abstract class AbstractCharacter
+  class Warrior
+  class Mage
+  class Archer
+}
+
+package "com.narxoz.rpg.factory" {
+  abstract class CharacterFactory
+  class WarriorFactory
+  class MageFactory
+  class ArcherFactory
+}
+
+Character <|.. AbstractCharacter
+AbstractCharacter <|-- Warrior
+AbstractCharacter <|-- Mage
+AbstractCharacter <|-- Archer
+
+CharacterFactory <|-- WarriorFactory
+CharacterFactory <|-- MageFactory
+CharacterFactory <|-- ArcherFactory
+
+CharacterFactory ..> Character : create()
+WarriorFactory ..> Warrior : creates
+MageFactory ..> Mage : creates
+ArcherFactory ..> Archer : creates
+@enduml
